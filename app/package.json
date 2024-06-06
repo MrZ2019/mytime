@@ -1,0 +1,25 @@
+{
+  "name": "mytime",
+  "main": "main.js",
+  "window": {
+    "width": 1200,
+    "height": 600,
+    "toolbar": false,
+    "icon": "favicon.png",
+    "show_in_taskbar": true
+  },
+  "nodejs": true,
+  "node-remote": [],
+  "chromium-args": "--mixed-context --disable-web-security",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "iconv-lite": "^0.6.3"
+  }
+}

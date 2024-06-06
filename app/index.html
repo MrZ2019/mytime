@@ -1,0 +1,111 @@
+<html>
+
+<head>
+<link rel="stylesheet" href="./libs/element/index.css" />
+<link rel="stylesheet" href="./style.css" />
+
+<script src="./libs/vue.min.js"></script>
+<script src="./libs/showdown.js"></script>
+<script src="./libs/vue-easy-lightbox.umd.min.js"></script>
+<script src="./libs/element/index.js"></script>
+<!-- <script src="./libs/id3-minimized.js"></script> -->
+
+</head>
+
+<body>
+
+
+<div id="app" v-cloak>
+
+    <div class="nav">
+        <div class="top-list list">
+            <span v-for="folder,index in topFolderList" :class="{active: topIndex == index}" @click="selectTopFolder(folder, index)">{{folder.name}}</span>
+        </div>
+        <div class="first-list list">
+            <span v-for="folder,index in firstFolderList" :class="{active: firstIndex == index}" @click="selectFirstFolder(folder, index)">{{folder.name}}</span>
+        </div>
+        <div class="second-list list">
+            <span v-for="folder,index in secondFolderList" :class="{active: secondIndex == index}" @click="selectSecondFolder(folder, index)">{{folder.name}}</span>
+        </div>
+        <!-- <el-tabs v-model="topFolder" @tab-click="selectTopFolderEl">
+            <el-tab-pane v-for="folder, index in topFolderList" :label="folder.name" :name="folder.name">
+                <el-tabs v-model="secondFolder" @tab-click="selectFirstFolderEl">
+                    <el-tab-pane v-for="folder, index in firstFolderList" :label="folder.name" :name="folder.name">
+                        <el-tabs v-model="thirdFolder" @tab-click="selectSecondFolderEl">
+                            <el-tab-pane v-for="folder, index in secondFolderList" :label="folder.name" :name="folder.name">
+                            </eltab-pane>
+                        </el-tabs>        
+                    </el-tab-pane>
+                </el-tabs>
+            </el-tab-pane>
+        </el-tabs> -->
+    </div>
+    <audio :src="curSong" ref="player" controls loop></audio>
+    <audio :src="curSong2" ref="player2" ></audio>
+    <div id="container">
+
+    <div class="left-music-box">
+        <ul>
+            <li v-for="(file, index) in list" :class="{playing: curSongIndex === index && currentSecondIndex == secondIndex && currentFirstIndex == firstIndex }">
+                <img :src="file.picture" alt="" class="picture" @click="onMp3Click(file, index)">
+                <div class="title">{{file.title}}</div>
+            </li>
+        </ul>
+    </div>
+    <div class="right-photo-box">
+            <div
+            v-for="(file, index) in imgs"
+            :key="index"
+            class="pic"
+          >
+          <el-tooltip effect="dark" :content="file.title" placement="top">
+            <img :src="file.path" v-if="file.isPic" @click="() => showImg(index)">
+        </el-tooltip>
+            <span class="video-box" v-if="file.isVideo">
+                <video  :src="file.path"  controls></video>
+                <i class="el-icon-zoom-in" @click="showVideo(file)"></i>
+            </span>
+          </div>
+        </div>
+        <vue-easy-lightbox
+          :visible="visible"
+          :imgs="imgs2"
+          :index="index"
+          @hide="handleHide"
+        ></vue-easy-lightbox>
+        <div class="video-preview" v-if="showVideoPreview" @click="closeVideo">
+            <video  :src="videoPreview.path"  controls></video>
+        </div>
+        <div class="sound-box">
+                <ul>
+                        <li v-for="(file, index) in soundList" >
+                            <div class="title" @click="playSound(file)">{{file.title}}</div>
+                        </li>
+                    </ul>       
+    </div>
+
+    <div class="event-box">
+        <div class="content" ref="events"></div>
+    </div>
+        
+    </div>    
+</div>
+
+
+
+
+</div>
+
+<script src="./script.js"></script>
+<script>
+        document.write(
+          '<script src="http://' +
+            'localhost:35729/livereload.js?snipver=1"></' +
+            'script>'
+        );
+      </script>
+
+      
+</body>
+
+</html>

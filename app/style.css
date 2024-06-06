@@ -1,0 +1,164 @@
+
+[v-cloak] {
+    display: none;
+}
+::-webkit-scrollbar-thumb {
+    background: red;
+}
+body {
+    background:#fff;
+}
+
+.nav .list {
+    margin: 12px 0;
+}
+
+.nav .list span {
+    cursor: pointer;
+    margin: 0 8px;
+    color: #777;
+}
+
+.nav .list  span.active {
+    color:cornflowerblue;
+}
+
+
+li {
+    list-style: none;
+}
+li .picture {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    margin: 0 24px 0 0;
+    cursor: pointer;
+}
+
+li {
+    display: flex;
+    align-items: center;
+}
+
+li .title {
+    font-size: 14px;
+}
+
+.playing img{
+    animation: rotate 10s infinite linear;
+}
+
+@-webkit-keyframes rotate {
+    from {
+        transform: rotateZ(0deg)
+    }
+
+    to {
+        transform: rotateZ(359deg)
+    }
+}
+
+#container {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.right-photo-box {
+    display: flex;
+    margin: 0 0 0 24px;
+    width: 60%;
+    flex-wrap: wrap;
+    max-height: 600px;
+    overflow:auto;
+}
+
+
+.pic {
+    margin: 12px;
+}
+.pic img {
+    width: 128px;
+}
+.pic video {
+    width: 200px;
+}
+
+.video-box {
+    position: relative;
+    display: block;
+}
+.video-box i {
+    display: none;
+    position: absolute;
+    right: -16px;
+    top: 0px;
+    clear: left;
+}
+
+.video-box:hover i {
+    display: inline-block;
+
+}
+
+
+.video-preview {
+    position: fixed;
+    top: 0;;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0,0, 1);
+}
+
+.video-preview video {
+    width: 70%;
+    max-height: 70%;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translateY(-50%) translateX(-50%);
+    margin: auto;
+    display: block;
+}
+
+.sound-box {
+    opacity: .5;
+}
+
+
+.sound-box:hover {
+    opacity: 1;
+}
+
+.sound-box li {
+    margin: 4px 0;
+    color: #777;
+    font-size: 12px;
+    cursor: pointer;
+    opacity: .5;
+}
+
+.sound-box li:hover {
+    opacity: 1;
+}
+.event-box  {
+    max-width: 20%;
+}
+.event-box .content {
+    font-size: 12px;
+    opacity: .1;
+}
+
+.event-box .content:hover {
+    opacity: .3;
+}
+
+
+.event-box .content:hover {
+    transform: translateX(0)
+}
+
+.event-box * {
+    font-size: 12px;
+}
